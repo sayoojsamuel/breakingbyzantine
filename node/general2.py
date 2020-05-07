@@ -17,7 +17,7 @@ class ByzantineServicer(byzantine_pb2_grpc.ByzantineServicer):
         response.value = Byzantine.SendDecision(request.value)
         return response
 
-def client()
+def client():
     # Generate a random personal choice
     personal_choice = decide()
     timestamp = time.time()
@@ -27,7 +27,7 @@ def client()
     callGeneral(7003, encoded_message, timestamp, generated_hmac)	
 
 
-def callGeneral(port, encoded_message, timestamp, generated_hmac)
+def callGeneral(port, encoded_message, timestamp, generated_hmac):
     # open a gRPC channel
     channel = grpc.insecure_channel('localhost:{}'.format(port))
 
