@@ -2,6 +2,7 @@
 
 import random
 import time
+from collections import Counter
 from Crypto.Hash import HMAC, SHA256
 
 SHARED_SECRET = b"AllHailByzantine"
@@ -132,7 +133,27 @@ def announceDecision():
     # FIXME: Complete according to the need
 
     return (
+        message,
         encoded_message,
         _time,
         mac
     )
+
+
+def collectiveDecision(message: bytes, others: (bytes, bytes)) -> bytes:
+    """
+    Function to finalize the attack plan
+
+    INPUT:
+    @message: bytes, the self.decision of the plan of attack
+    @others: (bytes, bytes), general2 and general3's plan of attack
+
+    OUTPUT:
+    @collective_decision: bytes, the majority decision
+    """
+    plans = [message] + list(others)
+    final_decision, vote_count = Counter(plans).most_common(1)[0]
+
+    return final_decision
+
+    return max()
