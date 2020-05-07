@@ -5,6 +5,7 @@ import time
 from collections import Counter
 from Crypto.Hash import HMAC, SHA256
 
+COINS = 100
 SHARED_SECRET = b"AllHailByzantine"
 ROUND_TIME = 10  # 10 Seconds
 OPTIONS = [
@@ -58,11 +59,21 @@ def decodeMessage(encoded_message: bytes) -> (bytes, float):
 def generateHMAC(encoded_message: bytes) -> str:
     """
     Function to generate HMAC for given message
+
+    Generate hmac only if we have sufficient coins
     INPUT:
     @encoded_message: bytes
     OUTPUT:
     @mac: str, the HMAC for the current message
     """
+    global COINS
+
+    # Handle insufficient coins
+    if COINS < 100:
+        return "00"*12 # Faulty hmac
+    else:
+        # Deduct coins for handling coins
+        COINS -= 100
 
     macObject = HMAC.new(
         key = SHARED_SECRET,
@@ -156,4 +167,3 @@ def collectiveDecision(message: bytes, others: (bytes, bytes)) -> bytes:
 
     return final_decision
 
-    return max()
