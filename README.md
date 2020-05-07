@@ -1,4 +1,4 @@
-# breakingByzatine
+# breakingByzantine
 ## Because Nothing is Impossible
 
 Parallel and Distributed computing project
