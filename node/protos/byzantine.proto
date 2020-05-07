@@ -1,0 +1,28 @@
+// ProtoBuf specs for breakingByzantine
+
+syntax = "proto3";
+
+message Decision {
+    // The encoded_message containing the decision and time
+    string encoded_message = 1;
+
+    // The time of decision genreation
+    float time = 2;
+
+    // MAC generated using hmac
+    string mac = 3;
+}
+
+message Acknowledge {
+    // The Ack message reply to decision
+    bool acknowledge = 1;
+}
+
+service Byzantine {
+    // A simple RPC
+    //
+    // To send the decision to the server
+    //
+    // Expects a Acknowledge reply
+    rpc SendDecision(Decision) returns (Acknowledge) {}
+}
