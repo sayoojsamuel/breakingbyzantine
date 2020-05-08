@@ -10,6 +10,7 @@ import byzantine_pb2_grpc
 
 # import byzantine functionalities
 import byzantine
+from byzantine import *
 
 class ByzantineServicer(byzantine_pb2_grpc.ByzantineServicer):
     def getDecision(self, request, context):
@@ -23,8 +24,11 @@ def client():
     timestamp = time.time()
     encoded_message = encodeMessage(personal_choice, timestamp)
     generated_hmac = generateHMAC(encoded_message)
+    print("[+] Generated Local Values; Calling Generals...")
     callGeneral(7001, encoded_message, timestamp, generated_hmac)
-    callGeneral(7003, encoded_message, timestamp, generated_hmac)	
+    print("Informed General 1")
+    callGeneral(7003, encoded_message, timestamp, generated_hmac)
+    print("Informed General 3")
 
 
 def callGeneral(port, encoded_message, timestamp, generated_hmac):
@@ -40,7 +44,10 @@ def callGeneral(port, encoded_message, timestamp, generated_hmac):
     # make the call
     response = stub.getDecision(decision)
 
-    print(response.value)
+    print("[!] General from port {} replied {}".format(port, response.value))
+
+    # Return the ack response
+    return response.acknowledgement
 
 
 # create a gRPC server
@@ -51,10 +58,16 @@ server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 byzantine_pb2_grpc.add_ByzantineServicer_to_server(
                 ByzantineServicer(), server)
 
-# listen on port 7002
+# listen on port 7001
 print('Starting server. General2 listening on port 7002.')
 server.add_insecure_port('[::]:7002')
 server.start()
+
+# Call the Generals after all servers are started
+input("Call Generals Now? (Tap Enter to continue): ")
+
+## Invoke the client
+client()
 
 # since server.start() will not block,
 # a sleep-loop is added to keep alive
