@@ -25,7 +25,8 @@ A Byzantine army decides to attack/ retreat
     
 ## Our Research - Making the impossible possible.  
 ![Research-meme](assets/start.jpg)
-You must have atleast read this to continue further:
+
+You must have atleast read the celebrated **Impossibility Result** to continue further:
 Reaching Agreement in the Presence of Faults, [PSL'80](https://lamport.azurewebsites.net/pubs/reaching.pdf).
 
 Our research is an imporvement to [The Byzantine Generals Problem - LSP'82](https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf). 
@@ -34,7 +35,6 @@ According to this paper, the system can be fault tolerant IFF `M` < 0.33 * `N`. 
 
 In other word, a three party byzantine general's problem cannot be fault tolerant if there is atleast one adversary. 
 
-    <!--![general](assets/general.jpg)-->
 ## What did we achieve?
 We solved the Three party Byzantine Fault Tolerence, in synchronous (and asynchronous) setup.  
 
@@ -53,15 +53,17 @@ A dishonest General may cheat if she sends different plan of attack to the other
 
 ### 3. How can they cheat?
 3 generals, third general is traitor. 
-The Traitor sends different plans
-If decision is based on majority
-    - (1) and (2) decide differently 
-    - (2) attacks and gets defeated
+* The Traitor sends different plans
+* If decision is based on majority
+    * (1) and (2) decide differently 
+    * (2) attacks and gets defeated
 
 ![cheat](assets/cheat.png)
 
 ### 4. How can we prevent cheating?
 We observed that they can only cheat if they send different message. This would imply that they would have to calculate two different MAC for those two messages.  
-Our idea was to implement `@coins`, and `k` coins are used for generating a valid HMAC. A general would have only sufficient `@coins` to calculate HMAC.
+Our idea was to implement a Cost Based system in which we bring in`@coins`, and `k` coins are used for generating a valid HMAC. A general would have only sufficient `@coins` to calculate HMAC.
 
-Therefor we end up preventing a traitor from sending different plan of attack, and thereby saving the Byzantine's army from horrible defeat. 
+Therefore we end up preventing a traitor from sending different plans of attack, and thereby saving the Byzantine's army from horrible defeat.
+
+This can be extended to N-party Byzantine Distributed Consensus. 
