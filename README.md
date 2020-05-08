@@ -67,3 +67,11 @@ Our idea was to implement a Cost Based system in which we bring in`@coins`, and 
 Therefore we end up preventing a traitor from sending different plans of attack, and thereby saving the Byzantine's army from horrible defeat.
 
 This can be extended to N-party Byzantine Distributed Consensus. 
+
+# Contributors
+
+1. S Ashwin Shenoi - [@__c3rb3ru5__](twitter.com/__c3rb3ru5__)
+2. Mahes Hari Sharma - [@shashb4sh](twitter.com/slashb4sh)
+3. Sayooj Samuel - [@sayoojsamuel](twitter.com/sayoojsamuel)
+
+With Love, [@teambi0s](twitter.com/teambi0s)
