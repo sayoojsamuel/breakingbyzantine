@@ -70,8 +70,8 @@ This can be extended to N-party Byzantine Distributed Consensus.
 
 # Contributors
 
-1. S Ashwin Shenoi - [@__c3rb3ru5__](twitter.com/__c3rb3ru5__)
-2. Mahes Hari Sharma - [@shashb4sh](twitter.com/slashb4sh)
-3. Sayooj Samuel - [@sayoojsamuel](twitter.com/sayoojsamuel)
+1. S Ashwin Shenoi - [@c3rb3ru5](https://twitter.com/__c3rb3ru5__)
+2. Mahes Hari Sharma - [@shashb4sh](https://twitter.com/slashb4sh)
+3. Sayooj Samuel - [@sayoojsamuel](https://twitter.com/sayoojsamuel)
 
-With Love, [@teambi0s](twitter.com/teambi0s)
+With Love, [@teambi0s](https://twitter.com/teambi0s) 
