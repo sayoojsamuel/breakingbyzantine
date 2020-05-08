@@ -10,7 +10,7 @@ Reaching Agreement in the Presence of Faults, [PSL'80](https://lamport.azurewebs
 
 Our research is an imporvement to [The Byzantine Generals Problem ](https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf)
 
-![general][general.jpg]
+![general](assets/general.jpg)
 ## What did we achieve
 Three party Byzantine Fault Tolerence, in synchronous (and asynchronous) setup.
 
